@@ -4,5 +4,16 @@
   "navHome": "Trang chủ",
   "navCalendar": "Lịch",
   "navStats": "Thống kê",
-  "navSettings": "Cài đặt"
+  "navSettings": "Cài đặt",
+  "calendarTitle": "Lịch",
+  "calendarNoEntry": "Ngày này chưa có nhật ký",
+  "statsTitle": "Thống kê",
+  "statsPieTitle": "Tỷ lệ cảm xúc",
+  "statsBarTitle": "Cảm xúc theo tuần",
+  "statsNoData": "Chưa có dữ liệu",
+  "emotionVeryHappy": "Rất vui",
+  "emotionHappy": "Vui",
+  "emotionNeutral": "Bình thường",
+  "emotionSad": "Buồn",
+  "emotionVerySad": "Rất buồn"
 }

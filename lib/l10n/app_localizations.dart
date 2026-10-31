@@ -127,6 +127,72 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Cài đặt'**
   String get navSettings;
+
+  /// No description provided for @calendarTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Lịch'**
+  String get calendarTitle;
+
+  /// No description provided for @calendarNoEntry.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ngày này chưa có nhật ký'**
+  String get calendarNoEntry;
+
+  /// No description provided for @statsTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Thống kê'**
+  String get statsTitle;
+
+  /// No description provided for @statsPieTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Tỷ lệ cảm xúc'**
+  String get statsPieTitle;
+
+  /// No description provided for @statsBarTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Cảm xúc theo tuần'**
+  String get statsBarTitle;
+
+  /// No description provided for @statsNoData.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chưa có dữ liệu'**
+  String get statsNoData;
+
+  /// No description provided for @emotionVeryHappy.
+  ///
+  /// In vi, this message translates to:
+  /// **'Rất vui'**
+  String get emotionVeryHappy;
+
+  /// No description provided for @emotionHappy.
+  ///
+  /// In vi, this message translates to:
+  /// **'Vui'**
+  String get emotionHappy;
+
+  /// No description provided for @emotionNeutral.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bình thường'**
+  String get emotionNeutral;
+
+  /// No description provided for @emotionSad.
+  ///
+  /// In vi, this message translates to:
+  /// **'Buồn'**
+  String get emotionSad;
+
+  /// No description provided for @emotionVerySad.
+  ///
+  /// In vi, this message translates to:
+  /// **'Rất buồn'**
+  String get emotionVerySad;
 }
 
 class _AppLocalizationsDelegate

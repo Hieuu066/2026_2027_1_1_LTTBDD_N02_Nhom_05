@@ -4,5 +4,16 @@
   "navHome": "Home",
   "navCalendar": "Calendar",
   "navStats": "Statistics",
-  "navSettings": "Settings"
+  "navSettings": "Settings",
+  "calendarTitle": "Calendar",
+  "calendarNoEntry": "No entry for this day",
+  "statsTitle": "Statistics",
+  "statsPieTitle": "Mood distribution",
+  "statsBarTitle": "Mood by week",
+  "statsNoData": "No data yet",
+  "emotionVeryHappy": "Very happy",
+  "emotionHappy": "Happy",
+  "emotionNeutral": "Neutral",
+  "emotionSad": "Sad",
+  "emotionVerySad": "Very sad"
 }
