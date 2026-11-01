@@ -168,6 +168,36 @@ class AppLocalizationsVi extends AppLocalizations {
   String get actionDelete => 'Xóa';
 
   @override
+  String get detailTitle => 'Chi tiết nhật ký';
+
+  @override
+  String get detailLevel => 'Mức độ';
+
+  @override
+  String get detailReasons => 'Lý do';
+
+  @override
+  String get detailNoReasons => 'Chưa chọn lý do';
+
+  @override
+  String get detailNote => 'Ghi chú';
+
+  @override
+  String get detailDelete => 'Xóa';
+
+  @override
+  String get detailDeleteTitle => 'Xóa nhật ký này?';
+
+  @override
+  String get detailDeleteMessage => 'Hành động này không thể hoàn tác.';
+
+  @override
+  String get detailCancel => 'Hủy';
+
+  @override
+  String get detailDeleted => 'Đã xóa nhật ký';
+
+  @override
   String get settingsTitle => 'Cài đặt';
 
   @override
