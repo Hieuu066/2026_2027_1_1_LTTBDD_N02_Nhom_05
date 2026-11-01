@@ -23,4 +23,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get navSettings => 'Settings';
+
+  @override
+  String get calendarTitle => 'Calendar';
+
+  @override
+  String get calendarNoEntry => 'No entry for this day';
+
+  @override
+  String get statsTitle => 'Statistics';
+
+  @override
+  String get statsPieTitle => 'Mood distribution';
+
+  @override
+  String get statsBarTitle => 'Mood by week';
+
+  @override
+  String get statsNoData => 'No data yet';
+
+  @override
+  String get emotionVeryHappy => 'Very happy';
+
+  @override
+  String get emotionHappy => 'Happy';
+
+  @override
+  String get emotionNeutral => 'Neutral';
+
+  @override
+  String get emotionSad => 'Sad';
+
+  @override
+  String get emotionVerySad => 'Very sad';
 }

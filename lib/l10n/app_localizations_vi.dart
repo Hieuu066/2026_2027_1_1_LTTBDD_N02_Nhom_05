@@ -23,4 +23,37 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get navSettings => 'Cài đặt';
+
+  @override
+  String get calendarTitle => 'Lịch';
+
+  @override
+  String get calendarNoEntry => 'Ngày này chưa có nhật ký';
+
+  @override
+  String get statsTitle => 'Thống kê';
+
+  @override
+  String get statsPieTitle => 'Tỷ lệ cảm xúc';
+
+  @override
+  String get statsBarTitle => 'Cảm xúc theo tuần';
+
+  @override
+  String get statsNoData => 'Chưa có dữ liệu';
+
+  @override
+  String get emotionVeryHappy => 'Rất vui';
+
+  @override
+  String get emotionHappy => 'Vui';
+
+  @override
+  String get emotionNeutral => 'Bình thường';
+
+  @override
+  String get emotionSad => 'Buồn';
+
+  @override
+  String get emotionVerySad => 'Rất buồn';
 }
