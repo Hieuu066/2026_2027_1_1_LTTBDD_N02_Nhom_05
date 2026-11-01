@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:table_calendar/table_calendar.dart';
 import 'package:provider/provider.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
 import '../../providers/mood_provider.dart';
-
+import '../../widgets/mood_entry_tile.dart'; // <-- 9a
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
@@ -23,6 +23,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
     final t = AppLocalizations.of(context)!;
     // 'vi' hoặc 'en' theo ngôn ngữ đang chọn
     final locale = Localizations.localeOf(context).toString();
+    // watch: khi nhật ký thay đổi thì lịch tự cập nhật
     final mood = context.watch<MoodProvider>();
 
     return Scaffold(
@@ -47,6 +48,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               formatButtonVisible: false,
               titleCentered: true,
             ),
+            // Mỗi ngày lấy danh sách nhật ký từ MoodProvider của Hiệu
             eventLoader: (day) => mood.getEntriesOfDay(day),
             calendarBuilders: CalendarBuilders<MoodEntry>(
               markerBuilder: (context, day, events) {
@@ -73,8 +75,26 @@ class _CalendarScreenState extends State<CalendarScreen> {
               },
             ),
           ),
+          // ===== 9b: thêm 2 dòng này =====
+          const Divider(height: 1),
+          Expanded(child: _buildSelectedDay(t, mood)),
         ],
       ),
+    );
+  }
+
+  // ===== 9c: thêm hàm này =====
+  // Danh sách nhật ký của ngày đang chọn
+  Widget _buildSelectedDay(AppLocalizations t, MoodProvider mood) {
+    final entries = mood.getEntriesOfDay(_selectedDay);
+    if (entries.isEmpty) {
+      return Center(child: Text(t.calendarNoEntry));
+    }
+    return ListView(
+      padding: const EdgeInsets.all(12),
+      children: [
+        for (final e in entries) MoodEntryTile(entry: e),
+      ],
     );
   }
 }
