@@ -61,5 +61,16 @@
   "detailDeleteTitle": "Delete this entry?",
   "detailDeleteMessage": "This action cannot be undone.",
   "detailCancel": "Cancel",
-  "detailDeleted": "Entry deleted"
+  "detailDeleted": "Entry deleted",
+  "settingsTitle": "Settings",
+  "themeLabel": "Appearance",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "System",
+  "languageLabel": "Language",
+  "languageVietnamese": "Tiếng Việt",
+  "languageEnglish": "English",
+  "reminderLabel": "Diary reminder",
+  "reminderSwitchTitle": "Daily reminder",
+  "reminderTimeTitle": "Reminder time"
 }

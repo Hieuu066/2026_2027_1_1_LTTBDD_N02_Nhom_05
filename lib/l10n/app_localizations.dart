@@ -469,6 +469,72 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Đã xóa nhật ký'**
   String get detailDeleted;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Cài đặt'**
+  String get settingsTitle;
+
+  /// No description provided for @themeLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Giao diện'**
+  String get themeLabel;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In vi, this message translates to:
+  /// **'Sáng'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In vi, this message translates to:
+  /// **'Tối'**
+  String get themeDark;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In vi, this message translates to:
+  /// **'Theo hệ thống'**
+  String get themeSystem;
+
+  /// No description provided for @languageLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ngôn ngữ'**
+  String get languageLabel;
+
+  /// No description provided for @languageVietnamese.
+  ///
+  /// In vi, this message translates to:
+  /// **'Tiếng Việt'**
+  String get languageVietnamese;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In vi, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @reminderLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nhắc ghi nhật ký'**
+  String get reminderLabel;
+
+  /// No description provided for @reminderSwitchTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nhắc hằng ngày'**
+  String get reminderSwitchTitle;
+
+  /// No description provided for @reminderTimeTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Giờ nhắc'**
+  String get reminderTimeTitle;
 }
 
 class _AppLocalizationsDelegate

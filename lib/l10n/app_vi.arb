@@ -61,5 +61,16 @@
   "detailDeleteTitle": "Xóa nhật ký này?",
   "detailDeleteMessage": "Hành động này không thể hoàn tác.",
   "detailCancel": "Hủy",
-  "detailDeleted": "Đã xóa nhật ký"
+  "detailDeleted": "Đã xóa nhật ký",
+  "settingsTitle": "Cài đặt",
+  "themeLabel": "Giao diện",
+  "themeLight": "Sáng",
+  "themeDark": "Tối",
+  "themeSystem": "Theo hệ thống",
+  "languageLabel": "Ngôn ngữ",
+  "languageVietnamese": "Tiếng Việt",
+  "languageEnglish": "English",
+  "reminderLabel": "Nhắc ghi nhật ký",
+  "reminderSwitchTitle": "Nhắc hằng ngày",
+  "reminderTimeTitle": "Giờ nhắc"
 }

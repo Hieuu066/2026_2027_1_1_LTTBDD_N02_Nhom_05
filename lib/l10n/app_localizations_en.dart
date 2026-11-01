@@ -196,4 +196,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get detailDeleted => 'Entry deleted';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get themeLabel => 'Appearance';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get languageLabel => 'Language';
+
+  @override
+  String get languageVietnamese => 'Tiếng Việt';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get reminderLabel => 'Diary reminder';
+
+  @override
+  String get reminderSwitchTitle => 'Daily reminder';
+
+  @override
+  String get reminderTimeTitle => 'Reminder time';
 }
