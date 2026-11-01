@@ -56,4 +56,114 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get emotionVerySad => 'Rất buồn';
+
+  @override
+  String get homeGreetingMorning => 'Chào buổi sáng 👋';
+
+  @override
+  String get homeGreetingAfternoon => 'Chào buổi chiều 👋';
+
+  @override
+  String get homeGreetingEvening => 'Chào buổi tối 👋';
+
+  @override
+  String get homeQuestion => 'Hôm nay bạn cảm thấy thế nào?';
+
+  @override
+  String get homeTodayDone =>
+      'Hôm nay bạn đã ghi nhật ký rồi. Muốn ghi thêm không?';
+
+  @override
+  String get homeRecentTitle => 'Nhật ký gần đây';
+
+  @override
+  String get homeSeeAll => 'Xem tất cả';
+
+  @override
+  String get homeEmpty =>
+      'Bạn chưa có nhật ký nào. Hãy ghi lại cảm xúc đầu tiên nhé!';
+
+  @override
+  String get entryAddTitle => 'Thêm nhật ký';
+
+  @override
+  String get entryEditTitle => 'Sửa nhật ký';
+
+  @override
+  String get entryDateLabel => 'Ngày';
+
+  @override
+  String get entryMoodLabel => 'Cảm xúc';
+
+  @override
+  String get entryLevelLabel => 'Mức độ';
+
+  @override
+  String get entryReasonLabel => 'Lý do';
+
+  @override
+  String get entryNoteLabel => 'Ghi chú';
+
+  @override
+  String get entryNoteHint => 'Hôm nay có chuyện gì?';
+
+  @override
+  String get entrySave => 'Lưu';
+
+  @override
+  String get entrySaved => 'Đã lưu nhật ký';
+
+  @override
+  String get entryChooseMood => 'Hãy chọn một cảm xúc';
+
+  @override
+  String get entryNoNote => '(Không có ghi chú)';
+
+  @override
+  String get reasonStudy => 'Học tập';
+
+  @override
+  String get reasonFriends => 'Bạn bè';
+
+  @override
+  String get reasonFamily => 'Gia đình';
+
+  @override
+  String get reasonHealth => 'Sức khỏe';
+
+  @override
+  String get reasonWork => 'Công việc';
+
+  @override
+  String get reasonOther => 'Khác';
+
+  @override
+  String get listTitle => 'Danh sách nhật ký';
+
+  @override
+  String get listSearchHint => 'Tìm theo ghi chú...';
+
+  @override
+  String get listFilterAll => 'Tất cả';
+
+  @override
+  String get listEmpty => 'Không có nhật ký phù hợp';
+
+  @override
+  String get listDeleted => 'Đã xóa nhật ký';
+
+  @override
+  String get listUndo => 'Hoàn tác';
+
+  @override
+  String get deleteConfirmTitle => 'Xóa nhật ký?';
+
+  @override
+  String get deleteConfirmMessage => 'Bạn có chắc muốn xóa nhật ký này không?';
+
+  @override
+  String get actionCancel => 'Hủy';
+
+  @override
+  String get actionDelete => 'Xóa';
 }

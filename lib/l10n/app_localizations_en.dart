@@ -56,4 +56,114 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get emotionVerySad => 'Very sad';
+
+  @override
+  String get homeGreetingMorning => 'Good morning 👋';
+
+  @override
+  String get homeGreetingAfternoon => 'Good afternoon 👋';
+
+  @override
+  String get homeGreetingEvening => 'Good evening 👋';
+
+  @override
+  String get homeQuestion => 'How are you feeling today?';
+
+  @override
+  String get homeTodayDone =>
+      'You have already written today. Want to add more?';
+
+  @override
+  String get homeRecentTitle => 'Recent entries';
+
+  @override
+  String get homeSeeAll => 'See all';
+
+  @override
+  String get homeEmpty => 'No entries yet. Write down your first mood!';
+
+  @override
+  String get entryAddTitle => 'New entry';
+
+  @override
+  String get entryEditTitle => 'Edit entry';
+
+  @override
+  String get entryDateLabel => 'Date';
+
+  @override
+  String get entryMoodLabel => 'Mood';
+
+  @override
+  String get entryLevelLabel => 'Intensity';
+
+  @override
+  String get entryReasonLabel => 'Reasons';
+
+  @override
+  String get entryNoteLabel => 'Note';
+
+  @override
+  String get entryNoteHint => 'What happened today?';
+
+  @override
+  String get entrySave => 'Save';
+
+  @override
+  String get entrySaved => 'Entry saved';
+
+  @override
+  String get entryChooseMood => 'Please choose a mood';
+
+  @override
+  String get entryNoNote => '(No note)';
+
+  @override
+  String get reasonStudy => 'Study';
+
+  @override
+  String get reasonFriends => 'Friends';
+
+  @override
+  String get reasonFamily => 'Family';
+
+  @override
+  String get reasonHealth => 'Health';
+
+  @override
+  String get reasonWork => 'Work';
+
+  @override
+  String get reasonOther => 'Other';
+
+  @override
+  String get listTitle => 'All entries';
+
+  @override
+  String get listSearchHint => 'Search notes...';
+
+  @override
+  String get listFilterAll => 'All';
+
+  @override
+  String get listEmpty => 'No matching entries';
+
+  @override
+  String get listDeleted => 'Entry deleted';
+
+  @override
+  String get listUndo => 'Undo';
+
+  @override
+  String get deleteConfirmTitle => 'Delete entry?';
+
+  @override
+  String get deleteConfirmMessage =>
+      'Are you sure you want to delete this entry?';
+
+  @override
+  String get actionCancel => 'Cancel';
+
+  @override
+  String get actionDelete => 'Delete';
 }

@@ -193,6 +193,222 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Rất buồn'**
   String get emotionVerySad;
+
+  /// No description provided for @homeGreetingMorning.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chào buổi sáng 👋'**
+  String get homeGreetingMorning;
+
+  /// No description provided for @homeGreetingAfternoon.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chào buổi chiều 👋'**
+  String get homeGreetingAfternoon;
+
+  /// No description provided for @homeGreetingEvening.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chào buổi tối 👋'**
+  String get homeGreetingEvening;
+
+  /// No description provided for @homeQuestion.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hôm nay bạn cảm thấy thế nào?'**
+  String get homeQuestion;
+
+  /// No description provided for @homeTodayDone.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hôm nay bạn đã ghi nhật ký rồi. Muốn ghi thêm không?'**
+  String get homeTodayDone;
+
+  /// No description provided for @homeRecentTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nhật ký gần đây'**
+  String get homeRecentTitle;
+
+  /// No description provided for @homeSeeAll.
+  ///
+  /// In vi, this message translates to:
+  /// **'Xem tất cả'**
+  String get homeSeeAll;
+
+  /// No description provided for @homeEmpty.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bạn chưa có nhật ký nào. Hãy ghi lại cảm xúc đầu tiên nhé!'**
+  String get homeEmpty;
+
+  /// No description provided for @entryAddTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Thêm nhật ký'**
+  String get entryAddTitle;
+
+  /// No description provided for @entryEditTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Sửa nhật ký'**
+  String get entryEditTitle;
+
+  /// No description provided for @entryDateLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ngày'**
+  String get entryDateLabel;
+
+  /// No description provided for @entryMoodLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Cảm xúc'**
+  String get entryMoodLabel;
+
+  /// No description provided for @entryLevelLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Mức độ'**
+  String get entryLevelLabel;
+
+  /// No description provided for @entryReasonLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Lý do'**
+  String get entryReasonLabel;
+
+  /// No description provided for @entryNoteLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ghi chú'**
+  String get entryNoteLabel;
+
+  /// No description provided for @entryNoteHint.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hôm nay có chuyện gì?'**
+  String get entryNoteHint;
+
+  /// No description provided for @entrySave.
+  ///
+  /// In vi, this message translates to:
+  /// **'Lưu'**
+  String get entrySave;
+
+  /// No description provided for @entrySaved.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đã lưu nhật ký'**
+  String get entrySaved;
+
+  /// No description provided for @entryChooseMood.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hãy chọn một cảm xúc'**
+  String get entryChooseMood;
+
+  /// No description provided for @entryNoNote.
+  ///
+  /// In vi, this message translates to:
+  /// **'(Không có ghi chú)'**
+  String get entryNoNote;
+
+  /// No description provided for @reasonStudy.
+  ///
+  /// In vi, this message translates to:
+  /// **'Học tập'**
+  String get reasonStudy;
+
+  /// No description provided for @reasonFriends.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bạn bè'**
+  String get reasonFriends;
+
+  /// No description provided for @reasonFamily.
+  ///
+  /// In vi, this message translates to:
+  /// **'Gia đình'**
+  String get reasonFamily;
+
+  /// No description provided for @reasonHealth.
+  ///
+  /// In vi, this message translates to:
+  /// **'Sức khỏe'**
+  String get reasonHealth;
+
+  /// No description provided for @reasonWork.
+  ///
+  /// In vi, this message translates to:
+  /// **'Công việc'**
+  String get reasonWork;
+
+  /// No description provided for @reasonOther.
+  ///
+  /// In vi, this message translates to:
+  /// **'Khác'**
+  String get reasonOther;
+
+  /// No description provided for @listTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Danh sách nhật ký'**
+  String get listTitle;
+
+  /// No description provided for @listSearchHint.
+  ///
+  /// In vi, this message translates to:
+  /// **'Tìm theo ghi chú...'**
+  String get listSearchHint;
+
+  /// No description provided for @listFilterAll.
+  ///
+  /// In vi, this message translates to:
+  /// **'Tất cả'**
+  String get listFilterAll;
+
+  /// No description provided for @listEmpty.
+  ///
+  /// In vi, this message translates to:
+  /// **'Không có nhật ký phù hợp'**
+  String get listEmpty;
+
+  /// No description provided for @listDeleted.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đã xóa nhật ký'**
+  String get listDeleted;
+
+  /// No description provided for @listUndo.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hoàn tác'**
+  String get listUndo;
+
+  /// No description provided for @deleteConfirmTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Xóa nhật ký?'**
+  String get deleteConfirmTitle;
+
+  /// No description provided for @deleteConfirmMessage.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bạn có chắc muốn xóa nhật ký này không?'**
+  String get deleteConfirmMessage;
+
+  /// No description provided for @actionCancel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hủy'**
+  String get actionCancel;
+
+  /// No description provided for @actionDelete.
+  ///
+  /// In vi, this message translates to:
+  /// **'Xóa'**
+  String get actionDelete;
 }
 
 class _AppLocalizationsDelegate
