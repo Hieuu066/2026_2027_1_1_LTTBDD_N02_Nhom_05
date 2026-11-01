@@ -409,6 +409,66 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Xóa'**
   String get actionDelete;
+
+  /// No description provided for @detailTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chi tiết nhật ký'**
+  String get detailTitle;
+
+  /// No description provided for @detailLevel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Mức độ'**
+  String get detailLevel;
+
+  /// No description provided for @detailReasons.
+  ///
+  /// In vi, this message translates to:
+  /// **'Lý do'**
+  String get detailReasons;
+
+  /// No description provided for @detailNoReasons.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chưa chọn lý do'**
+  String get detailNoReasons;
+
+  /// No description provided for @detailNote.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ghi chú'**
+  String get detailNote;
+
+  /// No description provided for @detailDelete.
+  ///
+  /// In vi, this message translates to:
+  /// **'Xóa'**
+  String get detailDelete;
+
+  /// No description provided for @detailDeleteTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Xóa nhật ký này?'**
+  String get detailDeleteTitle;
+
+  /// No description provided for @detailDeleteMessage.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hành động này không thể hoàn tác.'**
+  String get detailDeleteMessage;
+
+  /// No description provided for @detailCancel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hủy'**
+  String get detailCancel;
+
+  /// No description provided for @detailDeleted.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đã xóa nhật ký'**
+  String get detailDeleted;
 }
 
 class _AppLocalizationsDelegate

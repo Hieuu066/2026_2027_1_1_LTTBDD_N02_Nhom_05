@@ -51,5 +51,15 @@
   "deleteConfirmTitle": "Xóa nhật ký?",
   "deleteConfirmMessage": "Bạn có chắc muốn xóa nhật ký này không?",
   "actionCancel": "Hủy",
-  "actionDelete": "Xóa"
+  "actionDelete": "Xóa",
+  "detailTitle": "Chi tiết nhật ký",
+  "detailLevel": "Mức độ",
+  "detailReasons": "Lý do",
+  "detailNoReasons": "Chưa chọn lý do",
+  "detailNote": "Ghi chú",
+  "detailDelete": "Xóa",
+  "detailDeleteTitle": "Xóa nhật ký này?",
+  "detailDeleteMessage": "Hành động này không thể hoàn tác.",
+  "detailCancel": "Hủy",
+  "detailDeleted": "Đã xóa nhật ký"
 }

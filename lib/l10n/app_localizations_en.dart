@@ -166,4 +166,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get actionDelete => 'Delete';
+
+  @override
+  String get detailTitle => 'Entry details';
+
+  @override
+  String get detailLevel => 'Intensity';
+
+  @override
+  String get detailReasons => 'Reasons';
+
+  @override
+  String get detailNoReasons => 'No reasons selected';
+
+  @override
+  String get detailNote => 'Note';
+
+  @override
+  String get detailDelete => 'Delete';
+
+  @override
+  String get detailDeleteTitle => 'Delete this entry?';
+
+  @override
+  String get detailDeleteMessage => 'This action cannot be undone.';
+
+  @override
+  String get detailCancel => 'Cancel';
+
+  @override
+  String get detailDeleted => 'Entry deleted';
 }
