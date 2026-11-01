@@ -7,6 +7,8 @@ import '../../models/mood_entry.dart';
 import '../../providers/mood_provider.dart';
 import '../../widgets/mood_entry_tile.dart'; // <-- 9a
 
+import '../entry/entry_detail_screen.dart';
+
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
 
@@ -93,7 +95,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
     return ListView(
       padding: const EdgeInsets.all(12),
       children: [
-        for (final e in entries) MoodEntryTile(entry: e),
+        for (final e in entries)
+          MoodEntryTile(
+            entry: e,
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => EntryDetailScreen(entry: e)),
+            ),
+          ),
       ],
     );
   }
