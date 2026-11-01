@@ -51,5 +51,16 @@
   "deleteConfirmTitle": "Xóa nhật ký?",
   "deleteConfirmMessage": "Bạn có chắc muốn xóa nhật ký này không?",
   "actionCancel": "Hủy",
-  "actionDelete": "Xóa"
+  "actionDelete": "Xóa",
+  "settingsTitle": "Cài đặt",
+  "themeLabel": "Giao diện",
+  "themeLight": "Sáng",
+  "themeDark": "Tối",
+  "themeSystem": "Theo hệ thống",
+  "languageLabel": "Ngôn ngữ",
+  "languageVietnamese": "Tiếng Việt",
+  "languageEnglish": "English",
+  "reminderLabel": "Nhắc ghi nhật ký",
+  "reminderSwitchTitle": "Nhắc hằng ngày",
+  "reminderTimeTitle": "Giờ nhắc"
 }

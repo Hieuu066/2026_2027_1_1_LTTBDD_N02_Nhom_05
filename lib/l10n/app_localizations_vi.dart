@@ -166,4 +166,37 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get actionDelete => 'Xóa';
+
+  @override
+  String get settingsTitle => 'Cài đặt';
+
+  @override
+  String get themeLabel => 'Giao diện';
+
+  @override
+  String get themeLight => 'Sáng';
+
+  @override
+  String get themeDark => 'Tối';
+
+  @override
+  String get themeSystem => 'Theo hệ thống';
+
+  @override
+  String get languageLabel => 'Ngôn ngữ';
+
+  @override
+  String get languageVietnamese => 'Tiếng Việt';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get reminderLabel => 'Nhắc ghi nhật ký';
+
+  @override
+  String get reminderSwitchTitle => 'Nhắc hằng ngày';
+
+  @override
+  String get reminderTimeTitle => 'Giờ nhắc';
 }
