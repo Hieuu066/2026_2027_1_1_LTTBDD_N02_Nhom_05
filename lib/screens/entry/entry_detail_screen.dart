@@ -18,7 +18,16 @@ class EntryDetailScreen extends StatelessWidget {
     context.watch<MoodProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(t.detailTitle)),
+      appBar: AppBar(
+        title: Text(t.detailTitle),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete_outline),
+            tooltip: t.detailDelete,
+            onPressed: () => _confirmDelete(context, t),
+          ),
+        ],
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -27,7 +36,10 @@ class EntryDetailScreen extends StatelessWidget {
             child: CircleAvatar(
               radius: 44,
               backgroundColor: entry.mood.color.withValues(alpha: 0.2),
-              child: Text(entry.mood.emoji, style: const TextStyle(fontSize: 48)),
+              child: Text(
+                entry.mood.emoji,
+                style: const TextStyle(fontSize: 48),
+              ),
             ),
           ),
           const SizedBox(height: 12),
@@ -39,6 +51,50 @@ class EntryDetailScreen extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Center(child: Text(_formatDate(entry.date))),
+          const SizedBox(height: 24),
+
+          // Mức độ 1-10
+          Text(t.detailLevel, style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: LinearProgressIndicator(
+                  value: entry.level / 10,
+                  minHeight: 10,
+                  borderRadius: BorderRadius.circular(5),
+                  color: entry.mood.color,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Text('${entry.level}/10'),
+            ],
+          ),
+          const SizedBox(height: 24),
+
+          // Lý do
+          Text(t.detailReasons, style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          if (entry.reasons.isEmpty)
+            Text(t.detailNoReasons)
+          else
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final r in entry.reasons)
+                  Chip(
+                    avatar: Icon(r.icon, size: 18),
+                    label: Text(r.label(t)),
+                  ),
+              ],
+            ),
+          const SizedBox(height: 24),
+
+          // Ghi chú
+          Text(t.detailNote, style: Theme.of(context).textTheme.titleMedium),
+          const SizedBox(height: 8),
+          Text(entry.note.isEmpty ? t.entryNoNote : entry.note),
         ],
       ),
     );
@@ -48,5 +104,32 @@ class EntryDetailScreen extends StatelessWidget {
   String _formatDate(DateTime d) {
     String two(int n) => n.toString().padLeft(2, '0');
     return '${d.day}/${d.month}/${d.year} ${two(d.hour)}:${two(d.minute)}';
+  }
+
+  // Hỏi xác nhận rồi xóa, xóa xong thì quay về màn trước
+  Future<void> _confirmDelete(BuildContext context, AppLocalizations t) async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(t.detailDeleteTitle),
+        content: Text(t.detailDeleteMessage),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(t.detailCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: Text(t.detailDelete),
+          ),
+        ],
+      ),
+    );
+    if (ok != true || !context.mounted) return;
+
+    final messenger = ScaffoldMessenger.of(context);
+    context.read<MoodProvider>().deleteEntry(entry);
+    Navigator.pop(context);
+    messenger.showSnackBar(SnackBar(content: Text(t.detailDeleted)));
   }
 }
