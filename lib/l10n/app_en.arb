@@ -72,5 +72,12 @@
   "languageEnglish": "English",
   "reminderLabel": "Diary reminder",
   "reminderSwitchTitle": "Daily reminder",
-  "reminderTimeTitle": "Reminder time"
+  "reminderTimeTitle": "Reminder time",
+  "statsWeekLabel": "W{n}",
+  "@statsWeekLabel": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "statsBarHint": "Average score: 5 = very happy, 1 = very sad"
 }

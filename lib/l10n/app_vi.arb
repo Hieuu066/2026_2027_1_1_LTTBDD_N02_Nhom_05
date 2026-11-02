@@ -72,5 +72,12 @@
   "languageEnglish": "English",
   "reminderLabel": "Nhắc ghi nhật ký",
   "reminderSwitchTitle": "Nhắc hằng ngày",
-  "reminderTimeTitle": "Giờ nhắc"
+  "reminderTimeTitle": "Giờ nhắc",
+  "statsWeekLabel": "T{n}",
+  "@statsWeekLabel": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "statsBarHint": "Điểm trung bình: 5 = rất vui, 1 = rất buồn"
 }

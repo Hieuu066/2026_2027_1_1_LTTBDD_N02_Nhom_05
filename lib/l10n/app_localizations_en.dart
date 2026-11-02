@@ -229,4 +229,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reminderTimeTitle => 'Reminder time';
+
+  @override
+  String statsWeekLabel(int n) {
+    return 'W$n';
+  }
+
+  @override
+  String get statsBarHint => 'Average score: 5 = very happy, 1 = very sad';
 }

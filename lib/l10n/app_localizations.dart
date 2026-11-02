@@ -535,6 +535,18 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Giờ nhắc'**
   String get reminderTimeTitle;
+
+  /// No description provided for @statsWeekLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'T{n}'**
+  String statsWeekLabel(int n);
+
+  /// No description provided for @statsBarHint.
+  ///
+  /// In vi, this message translates to:
+  /// **'Điểm trung bình: 5 = rất vui, 1 = rất buồn'**
+  String get statsBarHint;
 }
 
 class _AppLocalizationsDelegate

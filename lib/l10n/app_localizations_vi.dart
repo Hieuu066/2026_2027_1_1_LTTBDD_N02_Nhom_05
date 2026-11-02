@@ -229,4 +229,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get reminderTimeTitle => 'Giờ nhắc';
+
+  @override
+  String statsWeekLabel(int n) {
+    return 'T$n';
+  }
+
+  @override
+  String get statsBarHint => 'Điểm trung bình: 5 = rất vui, 1 = rất buồn';
 }
