@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
+import '../../models/mood_reason.dart';
 import '../../models/mood_type.dart';
 import '../../providers/mood_provider.dart';
 import '../../widgets/mood_picker.dart';
@@ -21,12 +22,33 @@ class EntryFormScreen extends StatefulWidget {
 class _EntryFormScreenState extends State<EntryFormScreen> {
   MoodType? _selectedMood; // cảm xúc đang chọn
   double _level = 5; // mức độ, mặc định là 5
+  final List<MoodReason> _selectedReasons = []; // các lý do đã chọn
+  final TextEditingController _noteController =
+      TextEditingController(); // ô ghi chú
 
   @override
   void initState() {
     super.initState();
     // Lấy cảm xúc được chọn sẵn (nếu có)
     _selectedMood = widget.initialMood;
+  }
+
+  @override
+  void dispose() {
+    // Giải phóng ô nhập chữ khi đóng màn hình
+    _noteController.dispose();
+    super.dispose();
+  }
+
+  // Chọn hoặc bỏ chọn một lý do
+  void _toggleReason(MoodReason reason, bool isSelected) {
+    setState(() {
+      if (isSelected) {
+        _selectedReasons.add(reason);
+      } else {
+        _selectedReasons.remove(reason);
+      }
+    });
   }
 
   // Bấm nút Lưu
@@ -47,8 +69,8 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
       date: DateTime.now(),
       mood: _selectedMood!,
       level: _level.round(),
-      reasons: [],
-      note: '',
+      reasons: List.from(_selectedReasons),
+      note: _noteController.text.trim(),
     );
     moodProvider.addEntry(newEntry);
 
@@ -99,6 +121,43 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
                 _level = value;
               });
             },
+          ),
+          const SizedBox(height: 24),
+
+          // Chọn lý do (chọn được nhiều)
+          Text(
+            t.entryReasonLabel,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              for (MoodReason reason in MoodReason.values)
+                FilterChip(
+                  avatar: Icon(reason.icon, size: 18),
+                  label: Text(reason.label(t)),
+                  selected: _selectedReasons.contains(reason),
+                  onSelected: (isSelected) => _toggleReason(reason, isSelected),
+                ),
+            ],
+          ),
+          const SizedBox(height: 24),
+
+          // Ghi chú
+          Text(
+            t.entryNoteLabel,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
+          TextField(
+            controller: _noteController,
+            maxLines: 4,
+            decoration: InputDecoration(
+              hintText: t.entryNoteHint,
+              border: const OutlineInputBorder(),
+            ),
           ),
           const SizedBox(height: 24),
 
