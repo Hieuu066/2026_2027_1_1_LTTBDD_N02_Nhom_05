@@ -3,9 +3,12 @@ import 'package:provider/provider.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
+import '../../models/mood_type.dart';
 import '../../providers/mood_provider.dart';
 import '../../widgets/mood_entry_tile.dart';
+import '../../widgets/mood_picker.dart';
 import '../entry/entry_detail_screen.dart';
+import '../entry/entry_form_screen.dart';
 
 // Màn Trang chủ: lời chào, chọn cảm xúc nhanh, nhật ký gần đây
 class HomeScreen extends StatelessWidget {
@@ -31,6 +34,16 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Mở màn Thêm nhật ký, có thể chọn sẵn một cảm xúc
+  void _openAddForm(BuildContext context, MoodType? mood) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EntryFormScreen(initialMood: mood),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
@@ -44,6 +57,14 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text(t.appTitle)),
+
+      // Nút tròn góc dưới bên phải để thêm nhật ký
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => _openAddForm(context, null),
+        icon: const Icon(Icons.add),
+        label: Text(t.entryAddTitle),
+      ),
+
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -58,6 +79,18 @@ class HomeScreen extends StatelessWidget {
           Text(
             wroteToday ? t.homeTodayDone : t.homeQuestion,
             style: const TextStyle(fontSize: 16),
+          ),
+          const SizedBox(height: 16),
+
+          // Chọn cảm xúc nhanh: chạm vào là mở màn Thêm với cảm xúc đó
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
+              child: MoodPicker(
+                selectedMood: null,
+                onSelect: (mood) => _openAddForm(context, mood),
+              ),
+            ),
           ),
           const SizedBox(height: 24),
 
@@ -81,6 +114,9 @@ class HomeScreen extends StatelessWidget {
                 entry: entry,
                 onTap: () => _openDetail(context, entry),
               ),
+
+          // Chừa chỗ để nút Thêm không che thẻ cuối cùng
+          const SizedBox(height: 80),
         ],
       ),
     );
