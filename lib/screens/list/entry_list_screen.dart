@@ -8,7 +8,7 @@ import '../../providers/mood_provider.dart';
 import '../../widgets/mood_entry_tile.dart';
 import '../entry/entry_detail_screen.dart';
 
-// Màn Danh sách: xem, tìm kiếm, lọc nhật ký
+// Màn Danh sách: xem, tìm kiếm, lọc, vuốt để xóa nhật ký
 class EntryListScreen extends StatefulWidget {
   const EntryListScreen({super.key});
 
@@ -25,6 +25,29 @@ class _EntryListScreenState extends State<EntryListScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => EntryDetailScreen(entry: entry)),
+    );
+  }
+
+  // Xóa nhật ký khi vuốt, cho phép hoàn tác
+  void _deleteEntry(MoodEntry entry) {
+    final t = AppLocalizations.of(context)!;
+    final moodProvider = context.read<MoodProvider>();
+
+    moodProvider.deleteEntry(entry);
+
+    // Ẩn thông báo cũ (nếu có) rồi hiện thông báo mới kèm nút Hoàn tác
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(t.listDeleted),
+        action: SnackBarAction(
+          label: t.listUndo,
+          onPressed: () {
+            // Thêm lại đúng nhật ký vừa xóa
+            moodProvider.addEntry(entry);
+          },
+        ),
+      ),
     );
   }
 
@@ -101,9 +124,24 @@ class _EntryListScreenState extends State<EntryListScreen> {
                     itemCount: entries.length,
                     itemBuilder: (context, index) {
                       MoodEntry entry = entries[index];
-                      return MoodEntryTile(
-                        entry: entry,
-                        onTap: () => _openDetail(entry),
+
+                      // Bọc thẻ trong Dismissible để vuốt sang trái là xóa
+                      return Dismissible(
+                        key: ValueKey(entry.id),
+                        direction: DismissDirection.endToStart,
+                        // Nền đỏ có thùng rác hiện ra khi đang vuốt
+                        background: Container(
+                          alignment: Alignment.centerRight,
+                          padding: const EdgeInsets.only(right: 20),
+                          margin: const EdgeInsets.symmetric(vertical: 4),
+                          color: Colors.red,
+                          child: const Icon(Icons.delete, color: Colors.white),
+                        ),
+                        onDismissed: (direction) => _deleteEntry(entry),
+                        child: MoodEntryTile(
+                          entry: entry,
+                          onTap: () => _openDetail(entry),
+                        ),
                       );
                     },
                   ),
