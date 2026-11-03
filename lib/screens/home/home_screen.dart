@@ -9,6 +9,7 @@ import '../../widgets/mood_entry_tile.dart';
 import '../../widgets/mood_picker.dart';
 import '../entry/entry_detail_screen.dart';
 import '../entry/entry_form_screen.dart';
+import '../list/entry_list_screen.dart';
 
 // Màn Trang chủ: lời chào, chọn cảm xúc nhanh, nhật ký gần đây
 class HomeScreen extends StatelessWidget {
@@ -41,6 +42,14 @@ class HomeScreen extends StatelessWidget {
       MaterialPageRoute(
         builder: (context) => EntryFormScreen(initialMood: mood),
       ),
+    );
+  }
+
+  // Mở màn Danh sách tất cả nhật ký
+  void _openList(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const EntryListScreen()),
     );
   }
 
@@ -94,10 +103,23 @@ class HomeScreen extends StatelessWidget {
           ),
           const SizedBox(height: 24),
 
-          // Tiêu đề phần nhật ký gần đây
-          Text(
-            t.homeRecentTitle,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          // Tiêu đề phần nhật ký gần đây và nút Xem tất cả
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  t.homeRecentTitle,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () => _openList(context),
+                child: Text(t.homeSeeAll),
+              ),
+            ],
           ),
           const SizedBox(height: 8),
 
