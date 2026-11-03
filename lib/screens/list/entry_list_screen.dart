@@ -3,11 +3,12 @@ import 'package:provider/provider.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
+import '../../models/mood_type.dart';
 import '../../providers/mood_provider.dart';
 import '../../widgets/mood_entry_tile.dart';
 import '../entry/entry_detail_screen.dart';
 
-// Màn Danh sách: xem, tìm kiếm nhật ký
+// Màn Danh sách: xem, tìm kiếm, lọc nhật ký
 class EntryListScreen extends StatefulWidget {
   const EntryListScreen({super.key});
 
@@ -17,6 +18,7 @@ class EntryListScreen extends StatefulWidget {
 
 class _EntryListScreenState extends State<EntryListScreen> {
   String _keyword = ''; // từ khóa đang tìm, ban đầu rỗng
+  MoodType? _filterMood; // cảm xúc đang lọc, null = tất cả
 
   // Mở màn Chi tiết nhật ký (màn của Khang)
   void _openDetail(MoodEntry entry) {
@@ -31,8 +33,8 @@ class _EntryListScreenState extends State<EntryListScreen> {
     final t = AppLocalizations.of(context)!;
     final moodProvider = context.watch<MoodProvider>();
 
-    // Tìm theo từ khóa trong ghi chú (null = chưa lọc theo cảm xúc)
-    List<MoodEntry> entries = moodProvider.search(_keyword, null);
+    // Tìm theo từ khóa và lọc theo cảm xúc đang chọn
+    List<MoodEntry> entries = moodProvider.search(_keyword, _filterMood);
 
     return Scaffold(
       appBar: AppBar(title: Text(t.listTitle)),
@@ -52,6 +54,41 @@ class _EntryListScreenState extends State<EntryListScreen> {
                   _keyword = value;
                 });
               },
+            ),
+          ),
+
+          // Bộ lọc cảm xúc, cuộn ngang
+          SizedBox(
+            height: 48,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              children: [
+                // Chip "Tất cả"
+                ChoiceChip(
+                  label: Text(t.listFilterAll),
+                  selected: _filterMood == null,
+                  onSelected: (_) {
+                    setState(() {
+                      _filterMood = null;
+                    });
+                  },
+                ),
+                // Mỗi cảm xúc một chip
+                for (MoodType mood in MoodType.values)
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8),
+                    child: ChoiceChip(
+                      label: Text('${mood.emoji} ${mood.label(t)}'),
+                      selected: _filterMood == mood,
+                      onSelected: (_) {
+                        setState(() {
+                          _filterMood = mood;
+                        });
+                      },
+                    ),
+                  ),
+              ],
             ),
           ),
 
