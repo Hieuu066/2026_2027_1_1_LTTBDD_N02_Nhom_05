@@ -8,12 +8,13 @@ import '../../models/mood_type.dart';
 import '../../providers/mood_provider.dart';
 import '../../widgets/mood_picker.dart';
 
-// Màn Thêm nhật ký
+// Màn Thêm / Sửa nhật ký
 class EntryFormScreen extends StatefulWidget {
   final MoodType?
   initialMood; // cảm xúc chọn sẵn từ Trang chủ (có thể không có)
+  final MoodEntry? entry; // nhật ký cần sửa (null = đang thêm mới)
 
-  const EntryFormScreen({super.key, this.initialMood});
+  const EntryFormScreen({super.key, this.initialMood, this.entry});
 
   @override
   State<EntryFormScreen> createState() => _EntryFormScreenState();
@@ -29,8 +30,18 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
   @override
   void initState() {
     super.initState();
-    // Lấy cảm xúc được chọn sẵn (nếu có)
-    _selectedMood = widget.initialMood;
+    MoodEntry? oldEntry = widget.entry;
+
+    if (oldEntry != null) {
+      // Đang sửa: điền sẵn dữ liệu cũ vào các ô
+      _selectedMood = oldEntry.mood;
+      _level = oldEntry.level.toDouble();
+      _selectedReasons.addAll(oldEntry.reasons);
+      _noteController.text = oldEntry.note;
+    } else {
+      // Đang thêm mới: lấy cảm xúc được chọn sẵn (nếu có)
+      _selectedMood = widget.initialMood;
+    }
   }
 
   @override
@@ -62,17 +73,28 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
       return;
     }
 
-    // Tạo nhật ký mới rồi thêm vào kho
     final moodProvider = context.read<MoodProvider>();
-    MoodEntry newEntry = MoodEntry(
-      id: moodProvider.createId(),
-      date: DateTime.now(),
-      mood: _selectedMood!,
-      level: _level.round(),
-      reasons: List.from(_selectedReasons),
-      note: _noteController.text.trim(),
-    );
-    moodProvider.addEntry(newEntry);
+    MoodEntry? oldEntry = widget.entry;
+
+    if (oldEntry != null) {
+      // Sửa: ghi dữ liệu mới vào nhật ký cũ (giữ nguyên id và ngày giờ)
+      oldEntry.mood = _selectedMood!;
+      oldEntry.level = _level.round();
+      oldEntry.reasons = List.from(_selectedReasons);
+      oldEntry.note = _noteController.text.trim();
+      moodProvider.updateEntry(oldEntry);
+    } else {
+      // Thêm mới: tạo nhật ký mới rồi thêm vào kho
+      MoodEntry newEntry = MoodEntry(
+        id: moodProvider.createId(),
+        date: DateTime.now(),
+        mood: _selectedMood!,
+        level: _level.round(),
+        reasons: List.from(_selectedReasons),
+        note: _noteController.text.trim(),
+      );
+      moodProvider.addEntry(newEntry);
+    }
 
     // Báo đã lưu và quay về màn trước
     ScaffoldMessenger.of(context)
@@ -84,8 +106,11 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
 
+    // Tiêu đề đổi theo chế độ: Sửa hay Thêm
+    String title = widget.entry != null ? t.entryEditTitle : t.entryAddTitle;
+
     return Scaffold(
-      appBar: AppBar(title: Text(t.entryAddTitle)),
+      appBar: AppBar(title: Text(title)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
