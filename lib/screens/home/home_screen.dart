@@ -7,6 +7,7 @@ import '../../models/mood_type.dart';
 import '../../providers/mood_provider.dart';
 import '../../widgets/mood_entry_tile.dart';
 import '../../widgets/mood_picker.dart';
+import '../../utils/daily_prompt.dart';
 import '../entry/entry_detail_screen.dart';
 import '../entry/entry_form_screen.dart';
 import '../list/entry_list_screen.dart';
@@ -53,6 +54,16 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Mở màn Thêm nhật ký, câu hỏi gợi ý hiện mờ trong ô ghi chú
+  void _openPromptForm(BuildContext context, String prompt) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EntryFormScreen(noteHint: prompt),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
@@ -63,6 +74,9 @@ class HomeScreen extends StatelessWidget {
 
     // 5 nhật ký mới nhất
     List<MoodEntry> recentEntries = moodProvider.getRecentEntries();
+
+    // Câu hỏi gợi ý của hôm nay
+    String todayPrompt = DailyPrompt.getToday(t);
 
     return Scaffold(
       appBar: AppBar(title: Text(t.appTitle)),
@@ -104,6 +118,41 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(height: 24),
 
           // Tiêu đề phần nhật ký gần đây và nút Xem tất cả
+          // Thẻ câu hỏi gợi ý của hôm nay
+          Card(
+            color: Theme.of(context).colorScheme.primaryContainer,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    t.promptTitle,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    todayPrompt,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  // Nút mở màn Thêm với câu hỏi này
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton.icon(
+                      onPressed: () => _openPromptForm(context, todayPrompt),
+                      icon: const Icon(Icons.edit_note),
+                      label: Text(t.promptWrite),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
           Row(
             children: [
               Expanded(
