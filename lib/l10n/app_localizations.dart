@@ -535,6 +535,60 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Giờ nhắc'**
   String get reminderTimeTitle;
+
+  /// No description provided for @promptTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'💡 Gợi ý hôm nay'**
+  String get promptTitle;
+
+  /// No description provided for @promptWrite.
+  ///
+  /// In vi, this message translates to:
+  /// **'Viết về điều này'**
+  String get promptWrite;
+
+  /// No description provided for @prompt1.
+  ///
+  /// In vi, this message translates to:
+  /// **'Điều gì khiến bạn mỉm cười hôm nay?'**
+  String get prompt1;
+
+  /// No description provided for @prompt2.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hôm nay bạn biết ơn điều gì?'**
+  String get prompt2;
+
+  /// No description provided for @prompt3.
+  ///
+  /// In vi, this message translates to:
+  /// **'Điều gì làm bạn thấy mệt nhất hôm nay?'**
+  String get prompt3;
+
+  /// No description provided for @prompt4.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hôm nay bạn đã học được điều gì mới?'**
+  String get prompt4;
+
+  /// No description provided for @prompt5.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hôm nay bạn đã nói chuyện với ai nhiều nhất?'**
+  String get prompt5;
+
+  /// No description provided for @prompt6.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nếu được làm lại hôm nay, bạn sẽ thay đổi điều gì?'**
+  String get prompt6;
+
+  /// No description provided for @prompt7.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ngày mai bạn mong chờ điều gì?'**
+  String get prompt7;
 }
 
 class _AppLocalizationsDelegate

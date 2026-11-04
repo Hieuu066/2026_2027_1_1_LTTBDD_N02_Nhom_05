@@ -229,4 +229,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reminderTimeTitle => 'Reminder time';
+
+  @override
+  String get promptTitle => '💡 Today\'s prompt';
+
+  @override
+  String get promptWrite => 'Write about this';
+
+  @override
+  String get prompt1 => 'What made you smile today?';
+
+  @override
+  String get prompt2 => 'What are you grateful for today?';
+
+  @override
+  String get prompt3 => 'What tired you out the most today?';
+
+  @override
+  String get prompt4 => 'What did you learn today?';
+
+  @override
+  String get prompt5 => 'Who did you talk to the most today?';
+
+  @override
+  String get prompt6 => 'If you could redo today, what would you change?';
+
+  @override
+  String get prompt7 => 'What are you looking forward to tomorrow?';
 }
