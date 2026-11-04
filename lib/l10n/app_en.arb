@@ -104,5 +104,40 @@
   "aboutRoleC": "System & Settings",
   "aboutRepo": "Source code on GitHub",
   "aboutCopyLink": "Copy link",
-  "aboutCopied": "Link copied"
+  "aboutCopied": "Link copied",
+  "statsInsightsTitle": "Highlights",
+  "statsHappiestDay": "Happiest day",
+  "statsTopReason": "Most common reason",
+  "statsNoReason": "No reasons recorded",
+  "statsTimes": "{n} times",
+  "@statsTimes": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "challengeTitle": "7-day self-care challenge",
+  "challengeIntro": "Do one small thing for yourself each day.",
+  "challengeProgress": "{done}/7 completed",
+  "@challengeProgress": {
+    "placeholders": {
+      "done": { "type": "int" }
+    }
+  },
+  "challengeDay": "Day {n}",
+  "@challengeDay": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "challengeReset": "Start over",
+  "challengeResetTitle": "Start the challenge over?",
+  "challengeResetMessage": "All your progress will be cleared.",
+  "challengeCongrats": "Great job! You completed all 7 days.",
+  "challengeTask1": "Drink enough water today",
+  "challengeTask2": "Go for a 15-minute walk",
+  "challengeTask3": "Go to bed before 11 PM",
+  "challengeTask4": "Message a friend or family member",
+  "challengeTask5": "Spend 10 minutes on a hobby you love",
+  "challengeTask6": "Write down 3 things you are grateful for",
+  "challengeTask7": "Take 5 minutes to breathe slowly"
 }

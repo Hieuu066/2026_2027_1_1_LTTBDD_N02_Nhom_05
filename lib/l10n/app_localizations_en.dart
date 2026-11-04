@@ -316,4 +316,70 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aboutCopied => 'Link copied';
+
+  @override
+  String get statsInsightsTitle => 'Highlights';
+
+  @override
+  String get statsHappiestDay => 'Happiest day';
+
+  @override
+  String get statsTopReason => 'Most common reason';
+
+  @override
+  String get statsNoReason => 'No reasons recorded';
+
+  @override
+  String statsTimes(int n) {
+    return '$n times';
+  }
+
+  @override
+  String get challengeTitle => '7-day self-care challenge';
+
+  @override
+  String get challengeIntro => 'Do one small thing for yourself each day.';
+
+  @override
+  String challengeProgress(int done) {
+    return '$done/7 completed';
+  }
+
+  @override
+  String challengeDay(int n) {
+    return 'Day $n';
+  }
+
+  @override
+  String get challengeReset => 'Start over';
+
+  @override
+  String get challengeResetTitle => 'Start the challenge over?';
+
+  @override
+  String get challengeResetMessage => 'All your progress will be cleared.';
+
+  @override
+  String get challengeCongrats => 'Great job! You completed all 7 days.';
+
+  @override
+  String get challengeTask1 => 'Drink enough water today';
+
+  @override
+  String get challengeTask2 => 'Go for a 15-minute walk';
+
+  @override
+  String get challengeTask3 => 'Go to bed before 11 PM';
+
+  @override
+  String get challengeTask4 => 'Message a friend or family member';
+
+  @override
+  String get challengeTask5 => 'Spend 10 minutes on a hobby you love';
+
+  @override
+  String get challengeTask6 => 'Write down 3 things you are grateful for';
+
+  @override
+  String get challengeTask7 => 'Take 5 minutes to breathe slowly';
 }

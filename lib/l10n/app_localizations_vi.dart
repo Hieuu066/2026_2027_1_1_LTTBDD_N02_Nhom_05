@@ -316,4 +316,71 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get aboutCopied => 'Đã sao chép liên kết';
+
+  @override
+  String get statsInsightsTitle => 'Điểm nổi bật';
+
+  @override
+  String get statsHappiestDay => 'Ngày vui nhất';
+
+  @override
+  String get statsTopReason => 'Lý do xuất hiện nhiều nhất';
+
+  @override
+  String get statsNoReason => 'Chưa ghi lý do nào';
+
+  @override
+  String statsTimes(int n) {
+    return '$n lần';
+  }
+
+  @override
+  String get challengeTitle => 'Thử thách 7 ngày chăm sóc bản thân';
+
+  @override
+  String get challengeIntro => 'Mỗi ngày làm một việc nhỏ cho chính bạn.';
+
+  @override
+  String challengeProgress(int done) {
+    return 'Hoàn thành $done/7';
+  }
+
+  @override
+  String challengeDay(int n) {
+    return 'Ngày $n';
+  }
+
+  @override
+  String get challengeReset => 'Làm lại từ đầu';
+
+  @override
+  String get challengeResetTitle => 'Làm lại thử thách từ đầu?';
+
+  @override
+  String get challengeResetMessage => 'Toàn bộ tiến độ sẽ bị xóa.';
+
+  @override
+  String get challengeCongrats => 'Tuyệt vời! Bạn đã hoàn thành cả 7 ngày.';
+
+  @override
+  String get challengeTask1 => 'Uống đủ nước trong ngày';
+
+  @override
+  String get challengeTask2 => 'Đi bộ 15 phút';
+
+  @override
+  String get challengeTask3 => 'Đi ngủ trước 23 giờ';
+
+  @override
+  String get challengeTask4 =>
+      'Nhắn tin hỏi thăm một người bạn hoặc người thân';
+
+  @override
+  String get challengeTask5 => 'Dành 10 phút cho sở thích của bạn';
+
+  @override
+  String get challengeTask6 => 'Viết ra 3 điều bạn biết ơn';
+
+  @override
+  String get challengeTask7 => 'Dành 5 phút hít thở chậm';
 }

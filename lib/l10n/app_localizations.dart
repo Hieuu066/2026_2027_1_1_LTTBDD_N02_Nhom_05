@@ -697,6 +697,126 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Đã sao chép liên kết'**
   String get aboutCopied;
+
+  /// No description provided for @statsInsightsTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Điểm nổi bật'**
+  String get statsInsightsTitle;
+
+  /// No description provided for @statsHappiestDay.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ngày vui nhất'**
+  String get statsHappiestDay;
+
+  /// No description provided for @statsTopReason.
+  ///
+  /// In vi, this message translates to:
+  /// **'Lý do xuất hiện nhiều nhất'**
+  String get statsTopReason;
+
+  /// No description provided for @statsNoReason.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chưa ghi lý do nào'**
+  String get statsNoReason;
+
+  /// No description provided for @statsTimes.
+  ///
+  /// In vi, this message translates to:
+  /// **'{n} lần'**
+  String statsTimes(int n);
+
+  /// No description provided for @challengeTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Thử thách 7 ngày chăm sóc bản thân'**
+  String get challengeTitle;
+
+  /// No description provided for @challengeIntro.
+  ///
+  /// In vi, this message translates to:
+  /// **'Mỗi ngày làm một việc nhỏ cho chính bạn.'**
+  String get challengeIntro;
+
+  /// No description provided for @challengeProgress.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hoàn thành {done}/7'**
+  String challengeProgress(int done);
+
+  /// No description provided for @challengeDay.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ngày {n}'**
+  String challengeDay(int n);
+
+  /// No description provided for @challengeReset.
+  ///
+  /// In vi, this message translates to:
+  /// **'Làm lại từ đầu'**
+  String get challengeReset;
+
+  /// No description provided for @challengeResetTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Làm lại thử thách từ đầu?'**
+  String get challengeResetTitle;
+
+  /// No description provided for @challengeResetMessage.
+  ///
+  /// In vi, this message translates to:
+  /// **'Toàn bộ tiến độ sẽ bị xóa.'**
+  String get challengeResetMessage;
+
+  /// No description provided for @challengeCongrats.
+  ///
+  /// In vi, this message translates to:
+  /// **'Tuyệt vời! Bạn đã hoàn thành cả 7 ngày.'**
+  String get challengeCongrats;
+
+  /// No description provided for @challengeTask1.
+  ///
+  /// In vi, this message translates to:
+  /// **'Uống đủ nước trong ngày'**
+  String get challengeTask1;
+
+  /// No description provided for @challengeTask2.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đi bộ 15 phút'**
+  String get challengeTask2;
+
+  /// No description provided for @challengeTask3.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đi ngủ trước 23 giờ'**
+  String get challengeTask3;
+
+  /// No description provided for @challengeTask4.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nhắn tin hỏi thăm một người bạn hoặc người thân'**
+  String get challengeTask4;
+
+  /// No description provided for @challengeTask5.
+  ///
+  /// In vi, this message translates to:
+  /// **'Dành 10 phút cho sở thích của bạn'**
+  String get challengeTask5;
+
+  /// No description provided for @challengeTask6.
+  ///
+  /// In vi, this message translates to:
+  /// **'Viết ra 3 điều bạn biết ơn'**
+  String get challengeTask6;
+
+  /// No description provided for @challengeTask7.
+  ///
+  /// In vi, this message translates to:
+  /// **'Dành 5 phút hít thở chậm'**
+  String get challengeTask7;
 }
 
 class _AppLocalizationsDelegate
