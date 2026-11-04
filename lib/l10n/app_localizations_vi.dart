@@ -229,4 +229,83 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get reminderTimeTitle => 'Giờ nhắc';
+
+  @override
+  String get splashSlogan => 'Ghi lại cảm xúc mỗi ngày';
+
+  @override
+  String get onboardSkip => 'Bỏ qua';
+
+  @override
+  String get onboardNext => 'Tiếp';
+
+  @override
+  String get onboardStart => 'Bắt đầu';
+
+  @override
+  String get onboard1Title => 'Ghi lại cảm xúc';
+
+  @override
+  String get onboard1Body =>
+      'Chọn cảm xúc của bạn mỗi ngày, chỉnh mức độ, chọn lý do và viết vài dòng ghi chú.';
+
+  @override
+  String get onboard2Title => 'Nhìn lại hành trình';
+
+  @override
+  String get onboard2Body =>
+      'Xem nhật ký trên lịch màu và các biểu đồ thống kê để hiểu rõ cảm xúc của mình hơn.';
+
+  @override
+  String get onboard3Title => 'Của riêng bạn';
+
+  @override
+  String get onboard3Body =>
+      'Đổi giao diện sáng hoặc tối, chọn tiếng Việt hoặc tiếng Anh và đặt giờ nhắc ghi nhật ký.';
+
+  @override
+  String get settingsAbout => 'Giới thiệu nhóm';
+
+  @override
+  String get aboutTitle => 'Giới thiệu nhóm';
+
+  @override
+  String get aboutAppDesc =>
+      'Ứng dụng giúp ghi lại và theo dõi cảm xúc mỗi ngày.';
+
+  @override
+  String get aboutCourse => 'Bài tập lớn môn Lập trình thiết bị di động';
+
+  @override
+  String get aboutSchool => 'Trường Đại học Phenikaa';
+
+  @override
+  String get aboutGroup => 'Nhóm 05 – Lớp học phần N02';
+
+  @override
+  String get aboutLecturer => 'Giảng viên';
+
+  @override
+  String get aboutMembers => 'Thành viên';
+
+  @override
+  String get aboutStudentId => 'MSSV';
+
+  @override
+  String get aboutRoleA => 'Nhật ký & Danh sách';
+
+  @override
+  String get aboutRoleB => 'Lịch & Thống kê';
+
+  @override
+  String get aboutRoleC => 'Hệ thống & Cài đặt';
+
+  @override
+  String get aboutRepo => 'Mã nguồn trên GitHub';
+
+  @override
+  String get aboutCopyLink => 'Sao chép liên kết';
+
+  @override
+  String get aboutCopied => 'Đã sao chép liên kết';
 }

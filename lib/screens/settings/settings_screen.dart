@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../core/routes/app_routes.dart';
 import '../../l10n/app_localizations.dart';
 import '../../providers/locale_provider.dart';
 import '../../providers/reminder_provider.dart';
@@ -102,6 +103,17 @@ class SettingsScreen extends StatelessWidget {
                   onTap: () => _pickTime(context, reminder),
                 ),
               ],
+            ),
+          ),
+          const SizedBox(height: 24),
+
+          // Giới thiệu nhóm
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: Text(t.settingsAbout),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).pushNamed(AppRoutes.about),
             ),
           ),
         ],
