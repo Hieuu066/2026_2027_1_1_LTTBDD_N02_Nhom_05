@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
 import '../../providers/mood_provider.dart';
+import 'entry_form_screen.dart';
 
 // Màn xem chi tiết một nhật ký
 class EntryDetailScreen extends StatelessWidget {
@@ -21,6 +22,19 @@ class EntryDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(t.detailTitle),
         actions: [
+          // Nút Sửa: mở màn Thêm/Sửa với nhật ký này (Hiệu thêm)
+          IconButton(
+            icon: const Icon(Icons.edit_outlined),
+            tooltip: t.entryEditTitle,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EntryFormScreen(entry: entry),
+                ),
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.delete_outline),
             tooltip: t.detailDelete,
@@ -83,10 +97,7 @@ class EntryDetailScreen extends StatelessWidget {
               runSpacing: 8,
               children: [
                 for (final r in entry.reasons)
-                  Chip(
-                    avatar: Icon(r.icon, size: 18),
-                    label: Text(r.label(t)),
-                  ),
+                  Chip(avatar: Icon(r.icon, size: 18), label: Text(r.label(t))),
               ],
             ),
           const SizedBox(height: 24),
