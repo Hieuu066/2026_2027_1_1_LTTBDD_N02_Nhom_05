@@ -589,6 +589,156 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Ngày mai bạn mong chờ điều gì?'**
   String get prompt7;
+
+  /// No description provided for @splashSlogan.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ghi lại cảm xúc mỗi ngày'**
+  String get splashSlogan;
+
+  /// No description provided for @onboardSkip.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bỏ qua'**
+  String get onboardSkip;
+
+  /// No description provided for @onboardNext.
+  ///
+  /// In vi, this message translates to:
+  /// **'Tiếp'**
+  String get onboardNext;
+
+  /// No description provided for @onboardStart.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bắt đầu'**
+  String get onboardStart;
+
+  /// No description provided for @onboard1Title.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ghi lại cảm xúc'**
+  String get onboard1Title;
+
+  /// No description provided for @onboard1Body.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chọn cảm xúc của bạn mỗi ngày, chỉnh mức độ, chọn lý do và viết vài dòng ghi chú.'**
+  String get onboard1Body;
+
+  /// No description provided for @onboard2Title.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nhìn lại hành trình'**
+  String get onboard2Title;
+
+  /// No description provided for @onboard2Body.
+  ///
+  /// In vi, this message translates to:
+  /// **'Xem nhật ký trên lịch màu và các biểu đồ thống kê để hiểu rõ cảm xúc của mình hơn.'**
+  String get onboard2Body;
+
+  /// No description provided for @onboard3Title.
+  ///
+  /// In vi, this message translates to:
+  /// **'Của riêng bạn'**
+  String get onboard3Title;
+
+  /// No description provided for @onboard3Body.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đổi giao diện sáng hoặc tối, chọn tiếng Việt hoặc tiếng Anh và đặt giờ nhắc ghi nhật ký.'**
+  String get onboard3Body;
+
+  /// No description provided for @settingsAbout.
+  ///
+  /// In vi, this message translates to:
+  /// **'Giới thiệu nhóm'**
+  String get settingsAbout;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In vi, this message translates to:
+  /// **'Giới thiệu nhóm'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutAppDesc.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ứng dụng giúp ghi lại và theo dõi cảm xúc mỗi ngày.'**
+  String get aboutAppDesc;
+
+  /// No description provided for @aboutCourse.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bài tập lớn môn Lập trình thiết bị di động'**
+  String get aboutCourse;
+
+  /// No description provided for @aboutSchool.
+  ///
+  /// In vi, this message translates to:
+  /// **'Trường Đại học Phenikaa'**
+  String get aboutSchool;
+
+  /// No description provided for @aboutGroup.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nhóm 05 – Lớp học phần N02'**
+  String get aboutGroup;
+
+  /// No description provided for @aboutLecturer.
+  ///
+  /// In vi, this message translates to:
+  /// **'Giảng viên'**
+  String get aboutLecturer;
+
+  /// No description provided for @aboutMembers.
+  ///
+  /// In vi, this message translates to:
+  /// **'Thành viên'**
+  String get aboutMembers;
+
+  /// No description provided for @aboutStudentId.
+  ///
+  /// In vi, this message translates to:
+  /// **'MSSV'**
+  String get aboutStudentId;
+
+  /// No description provided for @aboutRoleA.
+  ///
+  /// In vi, this message translates to:
+  /// **'Nhật ký & Danh sách'**
+  String get aboutRoleA;
+
+  /// No description provided for @aboutRoleB.
+  ///
+  /// In vi, this message translates to:
+  /// **'Lịch & Thống kê'**
+  String get aboutRoleB;
+
+  /// No description provided for @aboutRoleC.
+  ///
+  /// In vi, this message translates to:
+  /// **'Hệ thống & Cài đặt'**
+  String get aboutRoleC;
+
+  /// No description provided for @aboutRepo.
+  ///
+  /// In vi, this message translates to:
+  /// **'Mã nguồn trên GitHub'**
+  String get aboutRepo;
+
+  /// No description provided for @aboutCopyLink.
+  ///
+  /// In vi, this message translates to:
+  /// **'Sao chép liên kết'**
+  String get aboutCopyLink;
+
+  /// No description provided for @aboutCopied.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đã sao chép liên kết'**
+  String get aboutCopied;
 }
 
 class _AppLocalizationsDelegate

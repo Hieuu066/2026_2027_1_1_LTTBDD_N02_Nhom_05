@@ -256,4 +256,83 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get prompt7 => 'What are you looking forward to tomorrow?';
+
+  @override
+  String get splashSlogan => 'Record your feelings every day';
+
+  @override
+  String get onboardSkip => 'Skip';
+
+  @override
+  String get onboardNext => 'Next';
+
+  @override
+  String get onboardStart => 'Get started';
+
+  @override
+  String get onboard1Title => 'Record your mood';
+
+  @override
+  String get onboard1Body =>
+      'Pick how you feel each day, set the intensity, choose reasons and write a few notes.';
+
+  @override
+  String get onboard2Title => 'Look back on your journey';
+
+  @override
+  String get onboard2Body =>
+      'See your entries on a color calendar and in charts to understand your feelings better.';
+
+  @override
+  String get onboard3Title => 'Made for you';
+
+  @override
+  String get onboard3Body =>
+      'Switch between light and dark themes, choose Vietnamese or English, and set a daily reminder.';
+
+  @override
+  String get settingsAbout => 'About the team';
+
+  @override
+  String get aboutTitle => 'About the team';
+
+  @override
+  String get aboutAppDesc =>
+      'An app that helps you record and track your feelings every day.';
+
+  @override
+  String get aboutCourse => 'Final project, Mobile Application Development';
+
+  @override
+  String get aboutSchool => 'Phenikaa University';
+
+  @override
+  String get aboutGroup => 'Group 05 – Class N02';
+
+  @override
+  String get aboutLecturer => 'Lecturer';
+
+  @override
+  String get aboutMembers => 'Members';
+
+  @override
+  String get aboutStudentId => 'Student ID';
+
+  @override
+  String get aboutRoleA => 'Entries & List';
+
+  @override
+  String get aboutRoleB => 'Calendar & Statistics';
+
+  @override
+  String get aboutRoleC => 'System & Settings';
+
+  @override
+  String get aboutRepo => 'Source code on GitHub';
+
+  @override
+  String get aboutCopyLink => 'Copy link';
+
+  @override
+  String get aboutCopied => 'Link copied';
 }
