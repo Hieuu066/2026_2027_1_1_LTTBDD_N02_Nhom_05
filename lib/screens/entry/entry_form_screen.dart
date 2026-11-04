@@ -13,8 +13,14 @@ class EntryFormScreen extends StatefulWidget {
   final MoodType?
   initialMood; // cảm xúc chọn sẵn từ Trang chủ (có thể không có)
   final MoodEntry? entry; // nhật ký cần sửa (null = đang thêm mới)
+  final String? noteHint; // câu gợi ý hiện mờ trong ô ghi chú (có thể không có)
 
-  const EntryFormScreen({super.key, this.initialMood, this.entry});
+  const EntryFormScreen({
+    super.key,
+    this.initialMood,
+    this.entry,
+    this.noteHint,
+  });
 
   @override
   State<EntryFormScreen> createState() => _EntryFormScreenState();
@@ -180,7 +186,7 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
             controller: _noteController,
             maxLines: 4,
             decoration: InputDecoration(
-              hintText: t.entryNoteHint,
+              hintText: widget.noteHint ?? t.entryNoteHint,
               border: const OutlineInputBorder(),
             ),
           ),

@@ -54,6 +54,16 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  // Mở màn Thêm nhật ký, câu hỏi gợi ý hiện mờ trong ô ghi chú
+  void _openPromptForm(BuildContext context, String prompt) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EntryFormScreen(noteHint: prompt),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
@@ -126,6 +136,16 @@ class HomeScreen extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 16,
                       fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  // Nút mở màn Thêm với câu hỏi này
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton.icon(
+                      onPressed: () => _openPromptForm(context, todayPrompt),
+                      icon: const Icon(Icons.edit_note),
+                      label: Text(t.promptWrite),
                     ),
                   ),
                 ],
