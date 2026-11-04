@@ -1,5 +1,6 @@
 import '../models/mood_entry.dart';
 import '../models/mood_type.dart';
+import '../models/mood_reason.dart';
 
 // Các hàm tính số liệu cho màn Thống kê
 class StatsHelper {
@@ -41,5 +42,40 @@ class StatsHelper {
       for (var i = 0; i < weekCount; i++)
         counts[i] == 0 ? 0.0 : sums[i] / counts[i],
     ];
+  }
+    // Nhật ký "vui nhất": điểm cảm xúc cao nhất, bằng điểm thì lấy ngày gần hơn
+  static MoodEntry? happiestEntry(List<MoodEntry> entries) {
+    MoodEntry? best;
+    for (final e in entries) {
+      if (best == null) {
+        best = e;
+        continue;
+      }
+      final score = moodScore(e.mood);
+      final bestScore = moodScore(best.mood);
+      if (score > bestScore ||
+          (score == bestScore && e.date.isAfter(best.date))) {
+        best = e;
+      }
+    }
+    return best;
+  }
+
+  // Lý do xuất hiện nhiều nhất và số lần. Không có lý do nào thì trả về null.
+  // Bằng nhau thì lấy lý do đứng trước trong danh sách MoodReason.
+  static MapEntry<MoodReason, int>? topReason(List<MoodEntry> entries) {
+    final counts = {for (final r in MoodReason.values) r: 0};
+    for (final e in entries) {
+      for (final r in e.reasons) {
+        counts[r] = counts[r]! + 1;
+      }
+    }
+    MapEntry<MoodReason, int>? top;
+    for (final r in MoodReason.values) {
+      if (counts[r]! > 0 && (top == null || counts[r]! > top.value)) {
+        top = MapEntry(r, counts[r]!);
+      }
+    }
+    return top;
   }
 }
