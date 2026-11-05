@@ -239,6 +239,33 @@ class AppLocalizationsVi extends AppLocalizations {
   String get statsBarHint => 'Điểm trung bình: 5 = rất vui, 1 = rất buồn';
 
   @override
+  String get promptTitle => '💡 Gợi ý hôm nay';
+
+  @override
+  String get promptWrite => 'Viết về điều này';
+
+  @override
+  String get prompt1 => 'Điều gì khiến bạn mỉm cười hôm nay?';
+
+  @override
+  String get prompt2 => 'Hôm nay bạn biết ơn điều gì?';
+
+  @override
+  String get prompt3 => 'Điều gì làm bạn thấy mệt nhất hôm nay?';
+
+  @override
+  String get prompt4 => 'Hôm nay bạn đã học được điều gì mới?';
+
+  @override
+  String get prompt5 => 'Hôm nay bạn đã nói chuyện với ai nhiều nhất?';
+
+  @override
+  String get prompt6 => 'Nếu được làm lại hôm nay, bạn sẽ thay đổi điều gì?';
+
+  @override
+  String get prompt7 => 'Ngày mai bạn mong chờ điều gì?';
+
+  @override
   String get splashSlogan => 'Ghi lại cảm xúc mỗi ngày';
 
   @override
