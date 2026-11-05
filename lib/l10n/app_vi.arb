@@ -73,7 +73,14 @@
   "reminderLabel": "Nhắc ghi nhật ký",
   "reminderSwitchTitle": "Nhắc hằng ngày",
   "reminderTimeTitle": "Giờ nhắc",
-    "promptTitle": "💡 Gợi ý hôm nay",
+  "statsWeekLabel": "T{n}",
+  "@statsWeekLabel": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "statsBarHint": "Điểm trung bình: 5 = rất vui, 1 = rất buồn",
+  "promptTitle": "💡 Gợi ý hôm nay",
   "promptWrite": "Viết về điều này",
   "prompt1": "Điều gì khiến bạn mỉm cười hôm nay?",
   "prompt2": "Hôm nay bạn biết ơn điều gì?",
@@ -106,5 +113,40 @@
   "aboutRoleC": "Hệ thống & Cài đặt",
   "aboutRepo": "Mã nguồn trên GitHub",
   "aboutCopyLink": "Sao chép liên kết",
-  "aboutCopied": "Đã sao chép liên kết"
+  "aboutCopied": "Đã sao chép liên kết",
+  "statsInsightsTitle": "Điểm nổi bật",
+  "statsHappiestDay": "Ngày vui nhất",
+  "statsTopReason": "Lý do xuất hiện nhiều nhất",
+  "statsNoReason": "Chưa ghi lý do nào",
+  "statsTimes": "{n} lần",
+  "@statsTimes": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "challengeTitle": "Thử thách 7 ngày chăm sóc bản thân",
+  "challengeIntro": "Mỗi ngày làm một việc nhỏ cho chính bạn.",
+  "challengeProgress": "Hoàn thành {done}/7",
+  "@challengeProgress": {
+    "placeholders": {
+      "done": { "type": "int" }
+    }
+  },
+  "challengeDay": "Ngày {n}",
+  "@challengeDay": {
+    "placeholders": {
+      "n": { "type": "int" }
+    }
+  },
+  "challengeReset": "Làm lại từ đầu",
+  "challengeResetTitle": "Làm lại thử thách từ đầu?",
+  "challengeResetMessage": "Toàn bộ tiến độ sẽ bị xóa.",
+  "challengeCongrats": "Tuyệt vời! Bạn đã hoàn thành cả 7 ngày.",
+  "challengeTask1": "Uống đủ nước trong ngày",
+  "challengeTask2": "Đi bộ 15 phút",
+  "challengeTask3": "Đi ngủ trước 23 giờ",
+  "challengeTask4": "Nhắn tin hỏi thăm một người bạn hoặc người thân",
+  "challengeTask5": "Dành 10 phút cho sở thích của bạn",
+  "challengeTask6": "Viết ra 3 điều bạn biết ơn",
+  "challengeTask7": "Dành 5 phút hít thở chậm"
 }
