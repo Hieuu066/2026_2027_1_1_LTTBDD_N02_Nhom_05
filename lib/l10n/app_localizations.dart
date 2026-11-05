@@ -871,6 +871,30 @@ abstract class AppLocalizations {
   /// In vi, this message translates to:
   /// **'Dành 5 phút hít thở chậm'**
   String get challengeTask7;
+
+  /// No description provided for @entryPhotoLabel.
+  ///
+  /// In vi, this message translates to:
+  /// **'Ảnh của ngày'**
+  String get entryPhotoLabel;
+
+  /// No description provided for @entryPhotoPick.
+  ///
+  /// In vi, this message translates to:
+  /// **'Chọn ảnh'**
+  String get entryPhotoPick;
+
+  /// No description provided for @entryPhotoChange.
+  ///
+  /// In vi, this message translates to:
+  /// **'Đổi ảnh'**
+  String get entryPhotoChange;
+
+  /// No description provided for @entryPhotoRemove.
+  ///
+  /// In vi, this message translates to:
+  /// **'Bỏ ảnh'**
+  String get entryPhotoRemove;
 }
 
 class _AppLocalizationsDelegate
