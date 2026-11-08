@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  // Màu chủ đạo
-  static const Color seed = Color(0xFF6C63FF);
+  // Màu chủ đạo: đổi dòng này là đổi màu cả app
+  static const Color seed = Color(0xFF7B4DFF);
 
   // Màu theo cảm xúc
-  static const Color moodVeryHappy = Color(0xFF4CAF50);
-  static const Color moodHappy = Color(0xFF8BC34A);
-  static const Color moodNeutral = Color(0xFFFFC107);
-  static const Color moodSad = Color(0xFFFF9800);
-  static const Color moodVerySad = Color(0xFFF44336);
+  static const Color moodVeryHappy = Color(0xFF34C759);
+  static const Color moodHappy = Color(0xFF9BDB3A);
+  static const Color moodNeutral = Color(0xFFFFC83D);
+  static const Color moodSad = Color(0xFFFF9500);
+  static const Color moodVerySad = Color(0xFFFF453A);
 }
