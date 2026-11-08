@@ -12,20 +12,22 @@ class AppTheme {
     final scheme = ColorScheme.fromSeed(
       seedColor: AppColors.seed,
       brightness: brightness,
-      dynamicSchemeVariant: DynamicSchemeVariant.vibrant, // màu rực hơn
     );
-    final background = isLight ? const Color(0xFFF8F6FF) : scheme.surface;
+    // Nền sáng ngả theo màu chủ đạo, thẻ màu trắng
+    final background = isLight
+        ? Color.alphaBlend(scheme.primary.withValues(alpha: 0.10), Colors.white)
+        : scheme.surface;
     final surface = isLight ? Colors.white : scheme.surfaceContainerHigh;
 
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
       scaffoldBackgroundColor: background,
-      // Thanh tiêu đề màu chủ đạo, bo tròn phía dưới
+      // Thanh tiêu đề tông nhạt, bo tròn phía dưới
       appBarTheme: AppBarTheme(
         centerTitle: true,
-        backgroundColor: scheme.primary,
-        foregroundColor: scheme.onPrimary,
+        backgroundColor: scheme.primaryContainer,
+        foregroundColor: scheme.onPrimaryContainer,
         elevation: 0,
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
@@ -35,13 +37,13 @@ class AppTheme {
         titleTextStyle: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: scheme.onPrimary,
+          color: scheme.onPrimaryContainer,
         ),
       ),
       cardTheme: CardThemeData(
         color: surface,
-        elevation: 2,
-        shadowColor: scheme.primary.withValues(alpha: 0.25),
+        elevation: 3,
+        shadowColor: scheme.primary.withValues(alpha: 0.3),
         surfaceTintColor: Colors.transparent,
         margin: const EdgeInsets.symmetric(vertical: 6),
         shape: RoundedRectangleBorder(
@@ -54,10 +56,9 @@ class AppTheme {
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       ),
-      // Nút Thêm màu phụ để nổi bật
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: scheme.tertiary,
-        foregroundColor: scheme.onTertiary,
+        backgroundColor: scheme.primary,
+        foregroundColor: scheme.onPrimary,
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18),

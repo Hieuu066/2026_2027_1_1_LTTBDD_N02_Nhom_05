@@ -5,7 +5,7 @@ class AppColors {
   AppColors._();
 
   // Màu chủ đạo: đổi dòng này là đổi màu cả app
-  static const Color seed = Color(0xFF7B4DFF);
+  static const Color seed = Color(0xFF1FA39A);
 
   // Màu theo cảm xúc
   static const Color moodVeryHappy = Color(0xFF34C759);
