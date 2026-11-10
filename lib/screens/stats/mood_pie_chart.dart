@@ -18,11 +18,11 @@ class MoodPieChart extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 200,
+          height: 220,
           child: PieChart(
             PieChartData(
-              sectionsSpace: 2,
-              centerSpaceRadius: 40,
+              sectionsSpace: 3,
+              centerSpaceRadius: 34,
               sections: [
                 // Chỉ vẽ những cảm xúc có ít nhất 1 nhật ký
                 for (final m in MoodType.values)
@@ -30,12 +30,13 @@ class MoodPieChart extends StatelessWidget {
                     PieChartSectionData(
                       value: counts[m]!.toDouble(),
                       color: m.color,
-                      radius: 60,
+                      radius: 70,
                       title: '${(counts[m]! * 100 / total).round()}%',
                       titleStyle: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
+                        shadows: [Shadow(blurRadius: 3, color: Colors.black54)],
                       ),
                     ),
               ],
@@ -43,27 +44,25 @@ class MoodPieChart extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        // Chú thích: màu, emoji, tên và số lượng
+        // Chú thích: mỗi cảm xúc một viên thuốc màu, kèm emoji và số lượng
         Wrap(
-          spacing: 12,
+          spacing: 8,
           runSpacing: 8,
           alignment: WrapAlignment.center,
           children: [
             for (final m in MoodType.values)
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: 12,
-                    height: 12,
-                    decoration: BoxDecoration(
-                      color: m.color,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  const SizedBox(width: 4),
-                  Text('${m.emoji} ${m.label(t)}: ${counts[m]}'),
-                ],
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                decoration: BoxDecoration(
+                  color: m.color.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: m.color.withValues(alpha: 0.4)),
+                ),
+                child: Text(
+                  '${m.emoji} ${m.label(t)}: ${counts[m]}',
+                  style: const TextStyle(fontSize: 13),
+                ),
               ),
           ],
         ),
