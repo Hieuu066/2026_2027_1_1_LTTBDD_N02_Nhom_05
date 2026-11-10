@@ -14,34 +14,101 @@ class StatsInsights extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    final cs = Theme.of(context).colorScheme;
     final locale = Localizations.localeOf(context).toString();
     final happiest = StatsHelper.happiestEntry(entries);
     final top = StatsHelper.topReason(entries);
 
-    return Card(
-      child: Column(
-        children: [
-          // Ngày vui nhất
-          if (happiest != null)
-            ListTile(
-              leading: Text(
-                happiest.mood.emoji,
-                style: const TextStyle(fontSize: 28),
-              ),
-              title: Text(t.statsHappiestDay),
-              subtitle: Text(
-                '${DateFormat.yMMMd(locale).format(happiest.date)}'
-                ' · ${happiest.mood.label(t)} (${happiest.level}/10)',
-              ),
+    return Column(
+      children: [
+        // Ngày vui nhất
+        if (happiest != null) ...[
+          _InsightTile(
+            color: happiest.mood.color,
+            leading: Text(
+              happiest.mood.emoji,
+              style: const TextStyle(fontSize: 26),
             ),
-          // Lý do xuất hiện nhiều nhất
-          ListTile(
-            leading: Icon(top == null ? Icons.help_outline : top.key.icon),
-            title: Text(t.statsTopReason),
-            subtitle: Text(
-              top == null
-                  ? t.statsNoReason
-                  : '${top.key.label(t)} · ${t.statsTimes(top.value)}',
+            title: t.statsHappiestDay,
+            subtitle: '${DateFormat.yMMMd(locale).format(happiest.date)}'
+                ' · ${happiest.mood.label(t)} (${happiest.level}/10)',
+          ),
+          const SizedBox(height: 10),
+        ],
+        // Lý do xuất hiện nhiều nhất
+        _InsightTile(
+          color: cs.primary,
+          leading: Icon(
+            top == null ? Icons.help_outline : top.key.icon,
+            color: cs.primary,
+          ),
+          title: t.statsTopReason,
+          subtitle: top == null
+              ? t.statsNoReason
+              : '${top.key.label(t)} · ${t.statsTimes(top.value)}',
+        ),
+      ],
+    );
+  }
+}
+
+// Một dòng nhận xét: biểu tượng tròn bên trái, tiêu đề nhỏ và nội dung
+class _InsightTile extends StatelessWidget {
+  final Color color;
+  final Widget leading;
+  final String title;
+  final String subtitle;
+
+  const _InsightTile({
+    required this.color,
+    required this.leading,
+    required this.title,
+    required this.subtitle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.14),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: color.withValues(alpha: 0.35)),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: color.withValues(alpha: 0.2),
+              shape: BoxShape.circle,
+            ),
+            child: leading,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodySmall
+                      ?.copyWith(color: cs.onSurfaceVariant),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  subtitle,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
           ),
         ],

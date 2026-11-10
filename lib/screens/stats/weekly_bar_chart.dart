@@ -19,6 +19,7 @@ class WeeklyBarChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    final cs = Theme.of(context).colorScheme;
 
     return SizedBox(
       height: 220,
@@ -57,9 +58,16 @@ class WeeklyBarChart extends StatelessWidget {
                 barRods: [
                   BarChartRodData(
                     toY: averages[i],
-                    width: 18,
+                    width: 22,
                     color: _colorOf(averages[i]),
-                    borderRadius: BorderRadius.circular(4),
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(8)),
+                    // Thanh nền mờ để thấy rõ cột đạt bao nhiêu trên thang 5
+                    backDrawRodData: BackgroundBarChartRodData(
+                      show: true,
+                      toY: 5,
+                      color: cs.surfaceContainerHighest.withValues(alpha: 0.6),
+                    ),
                   ),
                 ],
               ),
