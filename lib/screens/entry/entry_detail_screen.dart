@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
 import '../../providers/mood_provider.dart';
-import 'entry_form_screen.dart';
+import '../../widgets/section_card.dart';
 
 // Màn xem chi tiết một nhật ký
 class EntryDetailScreen extends StatelessWidget {
@@ -15,6 +15,8 @@ class EntryDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppLocalizations.of(context)!;
+    final cs = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     // watch: khi nhật ký bị sửa thì màn này tự cập nhật
     context.watch<MoodProvider>();
 
@@ -22,21 +24,8 @@ class EntryDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(t.detailTitle),
         actions: [
-          // Nút Sửa: mở màn Thêm/Sửa với nhật ký này (Hiệu thêm)
           IconButton(
-            icon: const Icon(Icons.edit_outlined),
-            tooltip: t.entryEditTitle,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => EntryFormScreen(entry: entry),
-                ),
-              );
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.delete_outline),
+            icon: Icon(Icons.delete_outline, color: cs.error),
             tooltip: t.detailDelete,
             onPressed: () => _confirmDelete(context, t),
           ),
@@ -45,67 +34,114 @@ class EntryDetailScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          // Emoji lớn, tên cảm xúc và ngày giờ
-          Center(
-            child: CircleAvatar(
-              radius: 44,
-              backgroundColor: entry.mood.color.withValues(alpha: 0.2),
-              child: Text(
-                entry.mood.emoji,
-                style: const TextStyle(fontSize: 48),
+          // Phần đầu: nền chuyển màu theo cảm xúc, emoji lớn, tên và ngày giờ
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  entry.mood.color.withValues(alpha: 0.4),
+                  entry.mood.color.withValues(alpha: 0.1),
+                ],
               ),
+            ),
+            child: Column(
+              children: [
+                CircleAvatar(
+                  radius: 48,
+                  backgroundColor: cs.surface,
+                  child: Text(
+                    entry.mood.emoji,
+                    style: const TextStyle(fontSize: 52),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Text(
+                  entry.mood.label(t),
+                  style: textTheme.headlineSmall
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 6),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(Icons.schedule, size: 16, color: cs.onSurfaceVariant),
+                    const SizedBox(width: 4),
+                    Text(
+                      _formatDate(entry.date),
+                      style: TextStyle(color: cs.onSurfaceVariant),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          // Mức độ 1-10
+          SectionCard(
+            title: t.detailLevel,
+            icon: Icons.bolt_outlined,
+            child: Row(
+              children: [
+                Expanded(
+                  child: LinearProgressIndicator(
+                    value: entry.level / 10,
+                    minHeight: 12,
+                    borderRadius: BorderRadius.circular(6),
+                    color: entry.mood.color,
+                    backgroundColor: entry.mood.color.withValues(alpha: 0.15),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Text(
+                  '${entry.level}/10',
+                  style: textTheme.titleMedium
+                      ?.copyWith(fontWeight: FontWeight.bold),
+                ),
+              ],
             ),
           ),
           const SizedBox(height: 12),
-          Center(
-            child: Text(
-              entry.mood.label(t),
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-          ),
-          const SizedBox(height: 4),
-          Center(child: Text(_formatDate(entry.date))),
-          const SizedBox(height: 24),
-
-          // Mức độ 1-10
-          Text(t.detailLevel, style: Theme.of(context).textTheme.titleMedium),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(
-                child: LinearProgressIndicator(
-                  value: entry.level / 10,
-                  minHeight: 10,
-                  borderRadius: BorderRadius.circular(5),
-                  color: entry.mood.color,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Text('${entry.level}/10'),
-            ],
-          ),
-          const SizedBox(height: 24),
 
           // Lý do
-          Text(t.detailReasons, style: Theme.of(context).textTheme.titleMedium),
-          const SizedBox(height: 8),
-          if (entry.reasons.isEmpty)
-            Text(t.detailNoReasons)
-          else
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: [
-                for (final r in entry.reasons)
-                  Chip(avatar: Icon(r.icon, size: 18), label: Text(r.label(t))),
-              ],
-            ),
-          const SizedBox(height: 24),
+          SectionCard(
+            title: t.detailReasons,
+            icon: Icons.label_outline,
+            child: entry.reasons.isEmpty
+                ? Text(
+                    t.detailNoReasons,
+                    style: TextStyle(color: cs.onSurfaceVariant),
+                  )
+                : Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (final r in entry.reasons)
+                        Chip(
+                          avatar: Icon(r.icon, size: 18, color: cs.primary),
+                          label: Text(r.label(t)),
+                          backgroundColor:
+                              cs.primaryContainer.withValues(alpha: 0.5),
+                          side: BorderSide.none,
+                        ),
+                    ],
+                  ),
+          ),
+          const SizedBox(height: 12),
 
           // Ghi chú
-          Text(t.detailNote, style: Theme.of(context).textTheme.titleMedium),
-          const SizedBox(height: 8),
-          Text(entry.note.isEmpty ? t.entryNoNote : entry.note),
+          SectionCard(
+            title: t.detailNote,
+            icon: Icons.edit_note,
+            child: Text(
+              entry.note.isEmpty ? t.entryNoNote : entry.note,
+              style: textTheme.bodyLarge?.copyWith(height: 1.4),
+            ),
+          ),
         ],
       ),
     );
