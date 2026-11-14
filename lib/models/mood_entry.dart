@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'mood_reason.dart';
 import 'mood_type.dart';
 
@@ -9,6 +11,7 @@ class MoodEntry {
   int level; // mức độ từ 1 đến 10
   List<MoodReason> reasons; // các lý do đã chọn
   String note; // ghi chú
+  Uint8List? image; // ảnh của ngày dạng dãy byte (có thể không có)
 
   MoodEntry({
     required this.id,
@@ -17,6 +20,7 @@ class MoodEntry {
     required this.level,
     required this.reasons,
     required this.note,
+    this.image,
   });
 
   // Kiểm tra nhật ký này có phải của ngày [day] không

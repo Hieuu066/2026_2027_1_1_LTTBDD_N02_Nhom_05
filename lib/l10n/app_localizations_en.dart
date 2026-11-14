@@ -409,4 +409,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get challengeTask7 => 'Take 5 minutes to breathe slowly';
+
+  @override
+  String get entryPhotoLabel => 'Photo of the day';
+
+  @override
+  String get entryPhotoPick => 'Choose photo';
+
+  @override
+  String get entryPhotoChange => 'Change photo';
+
+  @override
+  String get entryPhotoRemove => 'Remove photo';
 }

@@ -148,5 +148,9 @@
   "challengeTask4": "Nhắn tin hỏi thăm một người bạn hoặc người thân",
   "challengeTask5": "Dành 10 phút cho sở thích của bạn",
   "challengeTask6": "Viết ra 3 điều bạn biết ơn",
-  "challengeTask7": "Dành 5 phút hít thở chậm"
+  "challengeTask7": "Dành 5 phút hít thở chậm",
+    "entryPhotoLabel": "Ảnh của ngày",
+  "entryPhotoPick": "Chọn ảnh",
+  "entryPhotoChange": "Đổi ảnh",
+  "entryPhotoRemove": "Bỏ ảnh"
 }

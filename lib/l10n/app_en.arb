@@ -148,5 +148,9 @@
   "challengeTask4": "Message a friend or family member",
   "challengeTask5": "Spend 10 minutes on a hobby you love",
   "challengeTask6": "Write down 3 things you are grateful for",
-  "challengeTask7": "Take 5 minutes to breathe slowly"
+  "challengeTask7": "Take 5 minutes to breathe slowly",
+    "entryPhotoLabel": "Photo of the day",
+  "entryPhotoPick": "Choose photo",
+  "entryPhotoChange": "Change photo",
+  "entryPhotoRemove": "Remove photo"
 }

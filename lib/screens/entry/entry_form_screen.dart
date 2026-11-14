@@ -1,5 +1,8 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
@@ -32,6 +35,7 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
   final List<MoodReason> _selectedReasons = []; // các lý do đã chọn
   final TextEditingController _noteController =
       TextEditingController(); // ô ghi chú
+  Uint8List? _image; // ảnh đã chọn (có thể chưa có)
 
   @override
   void initState() {
@@ -44,6 +48,7 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
       _level = oldEntry.level.toDouble();
       _selectedReasons.addAll(oldEntry.reasons);
       _noteController.text = oldEntry.note;
+      _image = oldEntry.image;
     } else {
       // Đang thêm mới: lấy cảm xúc được chọn sẵn (nếu có)
       _selectedMood = widget.initialMood;
@@ -68,6 +73,29 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
     });
   }
 
+  // Mở thư viện ảnh để chọn 1 ảnh
+  Future<void> _pickImage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? file = await picker.pickImage(
+      source: ImageSource.gallery,
+      maxWidth: 1080, // thu nhỏ ảnh cho đỡ tốn bộ nhớ
+      imageQuality: 80, // nén nhẹ ảnh
+    );
+
+    // Người dùng bấm hủy, không chọn ảnh nào
+    if (file == null) return;
+
+    // Đọc nội dung ảnh thành dãy byte
+    final Uint8List bytes = await file.readAsBytes();
+
+    // Màn hình đã bị đóng trong lúc chờ thì không làm gì nữa
+    if (!mounted) return;
+
+    setState(() {
+      _image = bytes;
+    });
+  }
+
   // Bấm nút Lưu
   void _save() {
     final t = AppLocalizations.of(context)!;
@@ -88,6 +116,8 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
       oldEntry.level = _level.round();
       oldEntry.reasons = List.from(_selectedReasons);
       oldEntry.note = _noteController.text.trim();
+
+      oldEntry.image = _image;
       moodProvider.updateEntry(oldEntry);
     } else {
       // Thêm mới: tạo nhật ký mới rồi thêm vào kho
@@ -98,6 +128,7 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
         level: _level.round(),
         reasons: List.from(_selectedReasons),
         note: _noteController.text.trim(),
+        image: _image,
       );
       moodProvider.addEntry(newEntry);
     }
@@ -191,7 +222,50 @@ class _EntryFormScreenState extends State<EntryFormScreen> {
             ),
           ),
           const SizedBox(height: 24),
+          // Ảnh của ngày (không bắt buộc)
+          Text(
+            t.entryPhotoLabel,
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 8),
 
+          // Có ảnh thì hiện ảnh xem trước
+          if (_image != null)
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.memory(
+                _image!,
+                height: 180,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+          const SizedBox(height: 8),
+
+          // Nút chọn / đổi ảnh và nút bỏ ảnh
+          Row(
+            children: [
+              OutlinedButton.icon(
+                onPressed: _pickImage,
+                icon: const Icon(Icons.photo_library_outlined),
+                label: Text(
+                  _image == null ? t.entryPhotoPick : t.entryPhotoChange,
+                ),
+              ),
+              const SizedBox(width: 8),
+              if (_image != null)
+                TextButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      _image = null;
+                    });
+                  },
+                  icon: const Icon(Icons.close),
+                  label: Text(t.entryPhotoRemove),
+                ),
+            ],
+          ),
+          const SizedBox(height: 24),
           // Nút Lưu
           FilledButton(onPressed: _save, child: Text(t.entrySave)),
         ],

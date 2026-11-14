@@ -410,4 +410,16 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get challengeTask7 => 'Dành 5 phút hít thở chậm';
+
+  @override
+  String get entryPhotoLabel => 'Ảnh của ngày';
+
+  @override
+  String get entryPhotoPick => 'Chọn ảnh';
+
+  @override
+  String get entryPhotoChange => 'Đổi ảnh';
+
+  @override
+  String get entryPhotoRemove => 'Bỏ ảnh';
 }
