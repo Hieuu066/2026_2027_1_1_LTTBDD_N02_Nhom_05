@@ -5,6 +5,7 @@ import '../../l10n/app_localizations.dart';
 import '../../models/mood_entry.dart';
 import '../../providers/mood_provider.dart';
 import '../../widgets/section_card.dart';
+import 'entry_form_screen.dart';
 
 // Màn xem chi tiết một nhật ký
 class EntryDetailScreen extends StatelessWidget {
@@ -24,6 +25,16 @@ class EntryDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(t.detailTitle),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.edit_outlined),
+            tooltip: t.entryEditTitle,
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => EntryFormScreen(entry: entry),
+              ),
+            ),
+          ),
           IconButton(
             icon: Icon(Icons.delete_outline, color: cs.error),
             tooltip: t.detailDelete,
@@ -61,8 +72,9 @@ class EntryDetailScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   entry.mood.label(t),
-                  style: textTheme.headlineSmall
-                      ?.copyWith(fontWeight: FontWeight.bold),
+                  style: textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(height: 6),
                 Row(
@@ -99,8 +111,9 @@ class EntryDetailScreen extends StatelessWidget {
                 const SizedBox(width: 12),
                 Text(
                   '${entry.level}/10',
-                  style: textTheme.titleMedium
-                      ?.copyWith(fontWeight: FontWeight.bold),
+                  style: textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),
@@ -124,8 +137,9 @@ class EntryDetailScreen extends StatelessWidget {
                         Chip(
                           avatar: Icon(r.icon, size: 18, color: cs.primary),
                           label: Text(r.label(t)),
-                          backgroundColor:
-                              cs.primaryContainer.withValues(alpha: 0.5),
+                          backgroundColor: cs.primaryContainer.withValues(
+                            alpha: 0.5,
+                          ),
                           side: BorderSide.none,
                         ),
                     ],
